@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form>
+    User Name: <input type = "text" name = "username" id ="username"><br>
+    Password <input type = "text" name = "password" id = "password"><br>
+    Confirm Password <input type = "text" name = "passwordconfirm"id = "passwordconfirm"><br>
+
+
+    <button>Send</button>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        var socket = io();
+        var username;
+        var password;
+        var confirmpassword;
+        var user;
+
+
+
+
+        $("form").submit(function()
+        {
+            username = document.getElementById('username').value;
+            password = document.getElementById('password').value;
+            confirmpassword = $("#passwordconfirm").val();
+
+            user = {
+                "username":username,
+                "password":password
+            };
+                socket.emit("login request", user)
+
+        });
+    </script>
+</form>
+
+</body>
+</html>

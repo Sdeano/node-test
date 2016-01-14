@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="riddles/style.css" rel="stylesheet">
+
+</head>
+<link rel="stylesheet" type="text/css" href="mobilestyle.css">
+<body>
+<div id = "MainCont">
+    User Name: <input type = "text" name = "username" id ="username"><br>
+    <button id = "helpbutton">Get Help!</button>
+</div>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+    var socket= io();
+    var username = "brian";
+
+
+    /* $('form').submit(function() {
+         console.log("help");
+         window.alert("help query");
+         socket.emit("help query", "hello");
+         return false;
+     });*/
+
+    $("#helpbutton").on("click",function()
+    {
+        username = document.getElementById('username').value;
+        console.log(username);
+
+
+        var reciever = {
+            "id":socket.io.engine.id,
+            "username":username,
+            "senderid":"null"
+        };
+        socket.emit("help query",reciever);
+    });
+
+    socket.on("help response",function(msg)
+    {
+        $("#helpbutton").css("background",msg);
+    });
+
+    socket.on("help update response",function(id)
+    {
+        updateLayout(id);
+    });
+
+    socket.on("socket denied",function()
+    {
+        window.alert("Whoops that username is already in use! Please choose another");
+
+    });
+
+    function updateLayout(id)
+    {
+        $("#MainCont").load(id);
+    }
+
+</script>
+</body>
+</html>

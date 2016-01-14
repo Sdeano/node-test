@@ -1,0 +1,271 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: darkseagreen;
+}
+nav ul
+{
+margin: 0;
+padding: 5px;
+list-style-type: none;
+text-align: left;
+background-color: #333;
+}
+
+nav ul li
+{
+    display: inline;
+}
+
+nav ul li a
+{
+    width:12%;
+    height:45px;
+    text-decoration: none;
+    border-radius:3px;
+    background-color: black;
+    color:#fff;
+    cursor:pointer;
+    padding:10px;
+    margin-top:30px;
+    border:2px solid #ccc;
+    font-size:18px;
+    font-family: 'Raleway', sans-serif;
+}
+
+nav ul li a:hover
+{
+    color: #000;
+    background-color: #fff;
+}
+nav ul li button:hover
+{
+    color: #000;
+    background-color: #fff;
+}
+#MainCont{
+    background-color: rgba(255, 255, 255, 0.17);
+    width: 100%;
+    height: 100%;
+    margin-top: 5%;
+    padding: 1%;
+}
+#InnerCont{
+    background-color: rgba(255, 255, 255, 0.17);
+    width: 80%;
+    height: 600px;
+    margin-left: 10%;
+    padding: 1%;
+}
+#InnerCont h1 {
+ margin: 5%;
+}
+section {
+    border: 2px solid whitesmoke;
+    float: left;
+    width: 40%;
+    height: 60%;
+    margin-left: 5%;
+    padding: 1%;
+}
+/*----------PopUp CSS -----------------------*/
+@import "http://fonts.googleapis.com/css?family=Raleway";
+/*----------------------------------------------
+CSS settings for HTML div Exact Center
+------------------------------------------------*/
+#abc {
+    width:100%;
+    height:100%;
+    opacity:.95;
+    top:0;
+    left:0;
+    display:none;
+    position:fixed;
+    background-color:#313131;
+    overflow:auto
+}
+img#close {
+    position:absolute;
+    right:-20px;
+    top:-23px;
+    cursor:pointer;
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 20px;
+}
+/*img {
+    height: 30px;
+    width: 30px;
+    float: left;
+    margin-top: 15px;
+    margin-right: 15px;
+}*/
+div#popupContact {
+    position:absolute;
+    left:45%;
+    top:17%;
+    margin-left:-202px;
+    font-family:'Raleway',sans-serif
+}
+form {
+    max-width:450px;
+    min-width:250px;
+    padding:10px 50px;
+    border:2px solid gray;
+    border-radius:10px;
+    font-family: 'Raleway', sans-serif;
+    background-color:#fff
+}
+p {
+    margin-top:30px
+}
+h2 {
+    background-color:#F2F2F2;
+    padding:20px 35px;
+    margin:-10px -50px;
+    text-align:center;
+    border-radius:10px 10px 0 0
+}
+h4{
+    font-weight: lighter;
+}
+hr {
+    margin:10px -50px;
+    border:0;
+    border-top:1px solid #ccc
+}
+input[type=text] {
+    width:82%;
+    padding:10px;
+    margin-top:15px;
+    border:1px solid #ccc;
+    padding-left:20px;
+    font-size:16px;
+    font-family: 'Raleway', sans-serif;
+}
+#name {
+    background-repeat:no-repeat;
+    background-position:5px 7px
+}
+#email {
+    background-repeat:no-repeat;
+    background-position:5px 7px;
+
+}
+textarea {
+    background-repeat:no-repeat;
+    background-position:5px 7px;
+    width:82%;
+    height:95px;
+    padding:10px;
+    resize:none;
+    margin-top:15px;
+    border:1px solid #ccc;
+    padding-left:20px;
+    font-size:16px;
+    font-family: 'Raleway', sans-serif;
+    margin-bottom:10px
+}
+#submit {
+    text-decoration:none;
+    width:100%;
+    text-align:center;
+    display:block;
+    background-color: #313131;
+    color:#fff;
+    border:1px solid #ccc;
+    padding:10px 0;
+    font-size:20px;
+    cursor:pointer;
+    border-radius:5px
+}
+span {
+    color:red;
+    font-weight:700
+}
+button {
+    height:45px;
+    border-radius:3px;
+    background-color: black;
+    color:#fff;
+    font-family:'Raleway',sans-serif;
+    font-size:18px;
+    cursor:pointer
+}
+
+/*------------------Ratings CSS -----------------*/
+form .stars {
+    background: url("images/stars.png") repeat-x 0 0;
+    width: 150px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+form .stars input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+form .stars input[type="radio"].star-5:checked ~ span {
+    width: 100%;
+}
+form .stars input[type="radio"].star-4:checked ~ span {
+    width: 80%;
+}
+form .stars input[type="radio"].star-3:checked ~ span {
+    width: 60%;
+}
+form .stars input[type="radio"].star-2:checked ~ span {
+    width: 40%;
+}
+form .stars input[type="radio"].star-1:checked ~ span {
+    width: 20%;
+}
+form .stars label {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 0!important;
+    padding: 0!important;
+    text-indent: -999em;
+    float: left;
+    position: relative;
+    z-index: 10;
+    background: transparent!important;
+    cursor: pointer;
+}
+form .stars label:hover ~ span {
+    background-position: 0 -30px;
+}
+form .stars label.star-5:hover ~ span {
+    width: 100% !important;
+}
+form .stars label.star-4:hover ~ span {
+    width: 80% !important;
+}
+form .stars label.star-3:hover ~ span {
+    width: 60% !important;
+}
+form .stars label.star-2:hover ~ span {
+    width: 40% !important;
+}
+form .stars label.star-1:hover ~ span {
+    width: 20% !important;
+}
+form .stars span {
+    display: block;
+    width: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 30px;
+    background: url("images/stars.png") repeat-x 0 -60px;
+    -webkit-transition: -webkit-width 0.5s;
+    -moz-transition: -moz-width 0.5s;
+    -ms-transition: -ms-width 0.5s;
+    -o-transition: -o-width 0.5s;
+    transition: width 0.5s;
+}

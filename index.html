@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="riddles/style.css" rel="stylesheet">
+    <title>Demo1</title>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li>
+            <a href="#">Home</a>
+        </li>
+    </ul>
+
+</nav>
+User Name: <input type = "text" name = "username" id ="username"><br>
+<button id = "helpbutton"  >Sync</button>
+<button id = "riddleone" class = "socketbutton" alt = "/riddles/ans1.html" >Riddle One</button>
+<button id = "riddletwo" class = "socketbutton" alt = "/riddles/ans2.html">Riddle Two</button>
+<button id = "riddlethree" class = "socketbutton" alt = "/riddles/ans3.html">Riddle Three</button>
+<button id = "riddlefour" class = "socketbutton" alt = "/riddles/ans4.html">Riddle Four</button>
+<button id = "riddlefive" class = "socketbutton" alt = "/riddles/ans5.html">Riddle Five</button>
+
+<div id="MainCont">
+    <div id="InnerCont">
+        <h1>Riddle me this...</h1>
+        <section id="no1">
+            <p>
+                Who makes it, has no need of it.
+                <br>
+                Who buys it, has no use for it.
+                <br>
+                Who uses it can neither see nor feel it.
+                <br>
+                What is it?
+            </p>
+        </section>
+    </div>
+</div>
+
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+    var socket = io();
+    var car = "hello";
+    var username;
+    var targetSocket;
+
+
+    $('#helpbutton').on("click",function()
+    {
+        username = document.getElementById('username').value;
+        socket.emit("verify socket",username);
+    });
+
+    $('#riddleone').on("click",function()
+    {
+        $("#MainCont").load("/riddles/demo1.html");
+        socket.emit("help update request",function(){
+
+        })
+    });
+
+    $('#riddletwo').on("click",function()
+    {
+        $("#MainCont").load("/riddles/demo2.html");
+    });
+
+    $('#riddlethree').on("click",function()
+    {
+        $("#MainCont").load("/riddles/demo3.html");
+    });
+
+    $('#riddlefour').on("click",function()
+    {
+        $("#MainCont").load("/riddles/demo4.html");
+    });
+
+    $('#riddlefive').on("click",function()
+    {
+        $("#MainCont").load("/riddles/demo5.html");
+    });
+
+    $('.socketbutton').on("click",function()
+    {
+        socket.emit("help update request", targetSocket, $(this).attr("alt") )
+    });
+
+    socket.on("verify response",function(msg)
+    {
+        targetSocket = msg;
+    });
+
+    socket.on("socket denied",function(msg)
+    {
+        window.alert(msg);
+    });
+
+
+</script>
+</body>
